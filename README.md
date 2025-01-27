@@ -5,9 +5,15 @@ extensive type-safe support. For more information please see the [main repo].
 
 Refer to the [documentation] for full details.
 
+This repo is similar to [stm32-rs-nightlies] but contains only the stm32c0
+PAC crate, and will not be force-pushed every day, so it's suitable for pinning
+in a Cargo.lock file. Each commit message in this repo will reference the
+revision of the [main repo] used to build it.
+
 [svd2rust]: https://github.com/rust-embedded/svd2rust
 [main repo]: https://github.com/stm32-rs/stm32-rs
 [documentation]: https://docs.rs/stm32c0/latest/stm32c0/
+[stm32-rs-nightlies]: https://github.com/stm32-rs/stm32-rs-nightlies
 
 ## Usage
 Each device supported by this crate is behind a feature gate so that you only
@@ -15,7 +21,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 
 ```toml
 [dependencies.stm32c0]
-version = "0.15.1"
+git = "https://github.com/aswild/stm32c0-pac"
 features = ["stm32c011"]
 ```
 
