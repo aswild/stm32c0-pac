@@ -8,7 +8,7 @@ Value on reset: 3*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum MODE0 {
+pub enum MODE {
     ///0: Input mode
     Input = 0,
     ///1: General purpose output mode
@@ -18,53 +18,53 @@ pub enum MODE0 {
     ///3: Analog mode
     Analog = 3,
 }
-impl From<MODE0> for u8 {
+impl From<MODE> for u8 {
     #[inline(always)]
-    fn from(variant: MODE0) -> Self {
+    fn from(variant: MODE) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for MODE0 {
+impl crate::FieldSpec for MODE {
     type Ux = u8;
 }
-impl crate::IsEnum for MODE0 {}
+impl crate::IsEnum for MODE {}
 ///Field `MODE(0-15)` reader - Port x configuration pin %s
-pub type MODE_R = crate::FieldReader<MODE0>;
+pub type MODE_R = crate::FieldReader<MODE>;
 impl MODE_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> MODE0 {
+    pub const fn variant(&self) -> MODE {
         match self.bits {
-            0 => MODE0::Input,
-            1 => MODE0::Output,
-            2 => MODE0::Alternate,
-            3 => MODE0::Analog,
+            0 => MODE::Input,
+            1 => MODE::Output,
+            2 => MODE::Alternate,
+            3 => MODE::Analog,
             _ => unreachable!(),
         }
     }
     ///Input mode
     #[inline(always)]
     pub fn is_input(&self) -> bool {
-        *self == MODE0::Input
+        *self == MODE::Input
     }
     ///General purpose output mode
     #[inline(always)]
     pub fn is_output(&self) -> bool {
-        *self == MODE0::Output
+        *self == MODE::Output
     }
     ///Alternate function mode
     #[inline(always)]
     pub fn is_alternate(&self) -> bool {
-        *self == MODE0::Alternate
+        *self == MODE::Alternate
     }
     ///Analog mode
     #[inline(always)]
     pub fn is_analog(&self) -> bool {
-        *self == MODE0::Analog
+        *self == MODE::Analog
     }
 }
 ///Field `MODE(0-15)` writer - Port x configuration pin %s
-pub type MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, MODE0, crate::Safe>;
+pub type MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, MODE, crate::Safe>;
 impl<'a, REG> MODE_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -73,22 +73,22 @@ where
     ///Input mode
     #[inline(always)]
     pub fn input(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Input)
+        self.variant(MODE::Input)
     }
     ///General purpose output mode
     #[inline(always)]
     pub fn output(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Output)
+        self.variant(MODE::Output)
     }
     ///Alternate function mode
     #[inline(always)]
     pub fn alternate(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Alternate)
+        self.variant(MODE::Alternate)
     }
     ///Analog mode
     #[inline(always)]
     pub fn analog(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Analog)
+        self.variant(MODE::Analog)
     }
 }
 impl R {

@@ -5,18 +5,18 @@ pub type W = crate::W<BSRRrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum BS0W {
+pub enum BIT_SET {
     ///1: Sets the corresponding ODx bit
     Set = 1,
 }
-impl From<BS0W> for bool {
+impl From<BIT_SET> for bool {
     #[inline(always)]
-    fn from(variant: BS0W) -> Self {
+    fn from(variant: BIT_SET) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `BS(0-15)` writer - Port x set pin %s
-pub type BS_W<'a, REG> = crate::BitWriter<'a, REG, BS0W>;
+pub type BS_W<'a, REG> = crate::BitWriter<'a, REG, BIT_SET>;
 impl<'a, REG> BS_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -24,7 +24,7 @@ where
     ///Sets the corresponding ODx bit
     #[inline(always)]
     pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(BS0W::Set)
+        self.variant(BIT_SET::Set)
     }
 }
 /**Port x reset pin %s
@@ -32,18 +32,18 @@ where
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum BR0W {
+pub enum BIT_RESET {
     ///1: Resets the corresponding ODx bit
     Reset = 1,
 }
-impl From<BR0W> for bool {
+impl From<BIT_RESET> for bool {
     #[inline(always)]
-    fn from(variant: BR0W) -> Self {
+    fn from(variant: BIT_RESET) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `BR(0-15)` writer - Port x reset pin %s
-pub type BR_W<'a, REG> = crate::BitWriter<'a, REG, BR0W>;
+pub type BR_W<'a, REG> = crate::BitWriter<'a, REG, BIT_RESET>;
 impl<'a, REG> BR_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -51,7 +51,7 @@ where
     ///Resets the corresponding ODx bit
     #[inline(always)]
     pub fn reset(self) -> &'a mut crate::W<REG> {
-        self.variant(BR0W::Reset)
+        self.variant(BIT_RESET::Reset)
     }
 }
 impl core::fmt::Debug for crate::generic::Reg<BSRRrs> {

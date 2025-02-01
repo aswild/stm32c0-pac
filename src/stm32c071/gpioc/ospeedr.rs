@@ -2,95 +2,12 @@
 pub type R = crate::R<OSPEEDRrs>;
 ///Register `OSPEEDR` writer
 pub type W = crate::W<OSPEEDRrs>;
-/**Port x configuration pin %s
-
-Value on reset: 0*/
-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum OSPEED0 {
-    ///0: Low speed
-    LowSpeed = 0,
-    ///1: Medium speed
-    MediumSpeed = 1,
-    ///2: High speed
-    HighSpeed = 2,
-    ///3: Very high speed
-    VeryHighSpeed = 3,
-}
-impl From<OSPEED0> for u8 {
-    #[inline(always)]
-    fn from(variant: OSPEED0) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for OSPEED0 {
-    type Ux = u8;
-}
-impl crate::IsEnum for OSPEED0 {}
 ///Field `OSPEED(0-15)` reader - Port x configuration pin %s
-pub type OSPEED_R = crate::FieldReader<OSPEED0>;
-impl OSPEED_R {
-    ///Get enumerated values variant
-    #[inline(always)]
-    pub const fn variant(&self) -> OSPEED0 {
-        match self.bits {
-            0 => OSPEED0::LowSpeed,
-            1 => OSPEED0::MediumSpeed,
-            2 => OSPEED0::HighSpeed,
-            3 => OSPEED0::VeryHighSpeed,
-            _ => unreachable!(),
-        }
-    }
-    ///Low speed
-    #[inline(always)]
-    pub fn is_low_speed(&self) -> bool {
-        *self == OSPEED0::LowSpeed
-    }
-    ///Medium speed
-    #[inline(always)]
-    pub fn is_medium_speed(&self) -> bool {
-        *self == OSPEED0::MediumSpeed
-    }
-    ///High speed
-    #[inline(always)]
-    pub fn is_high_speed(&self) -> bool {
-        *self == OSPEED0::HighSpeed
-    }
-    ///Very high speed
-    #[inline(always)]
-    pub fn is_very_high_speed(&self) -> bool {
-        *self == OSPEED0::VeryHighSpeed
-    }
-}
+pub use crate::stm32c071::gpioa::ospeedr::OSPEED_R;
 ///Field `OSPEED(0-15)` writer - Port x configuration pin %s
-pub type OSPEED_W<'a, REG> = crate::FieldWriter<'a, REG, 2, OSPEED0, crate::Safe>;
-impl<'a, REG> OSPEED_W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    ///Low speed
-    #[inline(always)]
-    pub fn low_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::LowSpeed)
-    }
-    ///Medium speed
-    #[inline(always)]
-    pub fn medium_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::MediumSpeed)
-    }
-    ///High speed
-    #[inline(always)]
-    pub fn high_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::HighSpeed)
-    }
-    ///Very high speed
-    #[inline(always)]
-    pub fn very_high_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::VeryHighSpeed)
-    }
-}
+pub use crate::stm32c071::gpioa::ospeedr::OSPEED_W;
+///Port x configuration pin %s
+pub use crate::stm32c071::gpioa::ospeedr::OUTPUT_SPEED;
 impl R {
     ///Port x configuration pin (0-15)
     ///

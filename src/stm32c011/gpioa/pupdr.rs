@@ -8,7 +8,7 @@ Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum PUPD0 {
+pub enum PULL {
     ///0: No pull-up, pull-down
     Floating = 0,
     ///1: Pull-up
@@ -16,47 +16,47 @@ pub enum PUPD0 {
     ///2: Pull-down
     PullDown = 2,
 }
-impl From<PUPD0> for u8 {
+impl From<PULL> for u8 {
     #[inline(always)]
-    fn from(variant: PUPD0) -> Self {
+    fn from(variant: PULL) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for PUPD0 {
+impl crate::FieldSpec for PULL {
     type Ux = u8;
 }
-impl crate::IsEnum for PUPD0 {}
+impl crate::IsEnum for PULL {}
 ///Field `PUPD(0-15)` reader - Port x configuration pin %s
-pub type PUPD_R = crate::FieldReader<PUPD0>;
+pub type PUPD_R = crate::FieldReader<PULL>;
 impl PUPD_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> Option<PUPD0> {
+    pub const fn variant(&self) -> Option<PULL> {
         match self.bits {
-            0 => Some(PUPD0::Floating),
-            1 => Some(PUPD0::PullUp),
-            2 => Some(PUPD0::PullDown),
+            0 => Some(PULL::Floating),
+            1 => Some(PULL::PullUp),
+            2 => Some(PULL::PullDown),
             _ => None,
         }
     }
     ///No pull-up, pull-down
     #[inline(always)]
     pub fn is_floating(&self) -> bool {
-        *self == PUPD0::Floating
+        *self == PULL::Floating
     }
     ///Pull-up
     #[inline(always)]
     pub fn is_pull_up(&self) -> bool {
-        *self == PUPD0::PullUp
+        *self == PULL::PullUp
     }
     ///Pull-down
     #[inline(always)]
     pub fn is_pull_down(&self) -> bool {
-        *self == PUPD0::PullDown
+        *self == PULL::PullDown
     }
 }
 ///Field `PUPD(0-15)` writer - Port x configuration pin %s
-pub type PUPD_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PUPD0>;
+pub type PUPD_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PULL>;
 impl<'a, REG> PUPD_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -65,17 +65,17 @@ where
     ///No pull-up, pull-down
     #[inline(always)]
     pub fn floating(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::Floating)
+        self.variant(PULL::Floating)
     }
     ///Pull-up
     #[inline(always)]
     pub fn pull_up(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::PullUp)
+        self.variant(PULL::PullUp)
     }
     ///Pull-down
     #[inline(always)]
     pub fn pull_down(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::PullDown)
+        self.variant(PULL::PullDown)
     }
 }
 impl R {

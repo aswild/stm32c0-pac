@@ -8,7 +8,7 @@ Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum OSPEED0 {
+pub enum OUTPUT_SPEED {
     ///0: Low speed
     LowSpeed = 0,
     ///1: Medium speed
@@ -18,53 +18,53 @@ pub enum OSPEED0 {
     ///3: Very high speed
     VeryHighSpeed = 3,
 }
-impl From<OSPEED0> for u8 {
+impl From<OUTPUT_SPEED> for u8 {
     #[inline(always)]
-    fn from(variant: OSPEED0) -> Self {
+    fn from(variant: OUTPUT_SPEED) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for OSPEED0 {
+impl crate::FieldSpec for OUTPUT_SPEED {
     type Ux = u8;
 }
-impl crate::IsEnum for OSPEED0 {}
+impl crate::IsEnum for OUTPUT_SPEED {}
 ///Field `OSPEED(0-15)` reader - Port x configuration pin %s
-pub type OSPEED_R = crate::FieldReader<OSPEED0>;
+pub type OSPEED_R = crate::FieldReader<OUTPUT_SPEED>;
 impl OSPEED_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> OSPEED0 {
+    pub const fn variant(&self) -> OUTPUT_SPEED {
         match self.bits {
-            0 => OSPEED0::LowSpeed,
-            1 => OSPEED0::MediumSpeed,
-            2 => OSPEED0::HighSpeed,
-            3 => OSPEED0::VeryHighSpeed,
+            0 => OUTPUT_SPEED::LowSpeed,
+            1 => OUTPUT_SPEED::MediumSpeed,
+            2 => OUTPUT_SPEED::HighSpeed,
+            3 => OUTPUT_SPEED::VeryHighSpeed,
             _ => unreachable!(),
         }
     }
     ///Low speed
     #[inline(always)]
     pub fn is_low_speed(&self) -> bool {
-        *self == OSPEED0::LowSpeed
+        *self == OUTPUT_SPEED::LowSpeed
     }
     ///Medium speed
     #[inline(always)]
     pub fn is_medium_speed(&self) -> bool {
-        *self == OSPEED0::MediumSpeed
+        *self == OUTPUT_SPEED::MediumSpeed
     }
     ///High speed
     #[inline(always)]
     pub fn is_high_speed(&self) -> bool {
-        *self == OSPEED0::HighSpeed
+        *self == OUTPUT_SPEED::HighSpeed
     }
     ///Very high speed
     #[inline(always)]
     pub fn is_very_high_speed(&self) -> bool {
-        *self == OSPEED0::VeryHighSpeed
+        *self == OUTPUT_SPEED::VeryHighSpeed
     }
 }
 ///Field `OSPEED(0-15)` writer - Port x configuration pin %s
-pub type OSPEED_W<'a, REG> = crate::FieldWriter<'a, REG, 2, OSPEED0, crate::Safe>;
+pub type OSPEED_W<'a, REG> = crate::FieldWriter<'a, REG, 2, OUTPUT_SPEED, crate::Safe>;
 impl<'a, REG> OSPEED_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -73,22 +73,22 @@ where
     ///Low speed
     #[inline(always)]
     pub fn low_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::LowSpeed)
+        self.variant(OUTPUT_SPEED::LowSpeed)
     }
     ///Medium speed
     #[inline(always)]
     pub fn medium_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::MediumSpeed)
+        self.variant(OUTPUT_SPEED::MediumSpeed)
     }
     ///High speed
     #[inline(always)]
     pub fn high_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::HighSpeed)
+        self.variant(OUTPUT_SPEED::HighSpeed)
     }
     ///Very high speed
     #[inline(always)]
     pub fn very_high_speed(self) -> &'a mut crate::W<REG> {
-        self.variant(OSPEED0::VeryHighSpeed)
+        self.variant(OUTPUT_SPEED::VeryHighSpeed)
     }
 }
 impl R {

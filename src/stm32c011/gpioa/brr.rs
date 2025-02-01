@@ -5,20 +5,20 @@ pub type W = crate::W<BRRrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum BR0W {
+pub enum BIT_RESET {
     ///0: No action on the corresponding ODx bit
     NoAction = 0,
     ///1: Reset the ODx bit
     Reset = 1,
 }
-impl From<BR0W> for bool {
+impl From<BIT_RESET> for bool {
     #[inline(always)]
-    fn from(variant: BR0W) -> Self {
+    fn from(variant: BIT_RESET) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `BR(0-15)` writer - Port x reset pin %s
-pub type BR_W<'a, REG> = crate::BitWriter<'a, REG, BR0W>;
+pub type BR_W<'a, REG> = crate::BitWriter<'a, REG, BIT_RESET>;
 impl<'a, REG> BR_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -26,12 +26,12 @@ where
     ///No action on the corresponding ODx bit
     #[inline(always)]
     pub fn no_action(self) -> &'a mut crate::W<REG> {
-        self.variant(BR0W::NoAction)
+        self.variant(BIT_RESET::NoAction)
     }
     ///Reset the ODx bit
     #[inline(always)]
     pub fn reset(self) -> &'a mut crate::W<REG> {
-        self.variant(BR0W::Reset)
+        self.variant(BIT_RESET::Reset)
     }
 }
 impl core::fmt::Debug for crate::generic::Reg<BRRrs> {

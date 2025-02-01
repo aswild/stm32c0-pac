@@ -8,7 +8,7 @@ Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum AFSEL0 {
+pub enum ALTERNATE_FUNCTION {
     ///0: AF0
     Af0 = 0,
     ///1: AF1
@@ -42,125 +42,125 @@ pub enum AFSEL0 {
     ///15: AF15
     Af15 = 15,
 }
-impl From<AFSEL0> for u8 {
+impl From<ALTERNATE_FUNCTION> for u8 {
     #[inline(always)]
-    fn from(variant: AFSEL0) -> Self {
+    fn from(variant: ALTERNATE_FUNCTION) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for AFSEL0 {
+impl crate::FieldSpec for ALTERNATE_FUNCTION {
     type Ux = u8;
 }
-impl crate::IsEnum for AFSEL0 {}
+impl crate::IsEnum for ALTERNATE_FUNCTION {}
 ///Field `AFR(EL0,EL1,EL2,EL3,EL4,EL5,EL6,EL7)` reader - Alternate function selection for port x pin y (y = 0 to 7) These bits are written by software to configure alternate function I/Os
-pub type AFR_R = crate::FieldReader<AFSEL0>;
+pub type AFR_R = crate::FieldReader<ALTERNATE_FUNCTION>;
 impl AFR_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> AFSEL0 {
+    pub const fn variant(&self) -> ALTERNATE_FUNCTION {
         match self.bits {
-            0 => AFSEL0::Af0,
-            1 => AFSEL0::Af1,
-            2 => AFSEL0::Af2,
-            3 => AFSEL0::Af3,
-            4 => AFSEL0::Af4,
-            5 => AFSEL0::Af5,
-            6 => AFSEL0::Af6,
-            7 => AFSEL0::Af7,
-            8 => AFSEL0::Af8,
-            9 => AFSEL0::Af9,
-            10 => AFSEL0::Af10,
-            11 => AFSEL0::Af11,
-            12 => AFSEL0::Af12,
-            13 => AFSEL0::Af13,
-            14 => AFSEL0::Af14,
-            15 => AFSEL0::Af15,
+            0 => ALTERNATE_FUNCTION::Af0,
+            1 => ALTERNATE_FUNCTION::Af1,
+            2 => ALTERNATE_FUNCTION::Af2,
+            3 => ALTERNATE_FUNCTION::Af3,
+            4 => ALTERNATE_FUNCTION::Af4,
+            5 => ALTERNATE_FUNCTION::Af5,
+            6 => ALTERNATE_FUNCTION::Af6,
+            7 => ALTERNATE_FUNCTION::Af7,
+            8 => ALTERNATE_FUNCTION::Af8,
+            9 => ALTERNATE_FUNCTION::Af9,
+            10 => ALTERNATE_FUNCTION::Af10,
+            11 => ALTERNATE_FUNCTION::Af11,
+            12 => ALTERNATE_FUNCTION::Af12,
+            13 => ALTERNATE_FUNCTION::Af13,
+            14 => ALTERNATE_FUNCTION::Af14,
+            15 => ALTERNATE_FUNCTION::Af15,
             _ => unreachable!(),
         }
     }
     ///AF0
     #[inline(always)]
     pub fn is_af0(&self) -> bool {
-        *self == AFSEL0::Af0
+        *self == ALTERNATE_FUNCTION::Af0
     }
     ///AF1
     #[inline(always)]
     pub fn is_af1(&self) -> bool {
-        *self == AFSEL0::Af1
+        *self == ALTERNATE_FUNCTION::Af1
     }
     ///AF2
     #[inline(always)]
     pub fn is_af2(&self) -> bool {
-        *self == AFSEL0::Af2
+        *self == ALTERNATE_FUNCTION::Af2
     }
     ///AF3
     #[inline(always)]
     pub fn is_af3(&self) -> bool {
-        *self == AFSEL0::Af3
+        *self == ALTERNATE_FUNCTION::Af3
     }
     ///AF4
     #[inline(always)]
     pub fn is_af4(&self) -> bool {
-        *self == AFSEL0::Af4
+        *self == ALTERNATE_FUNCTION::Af4
     }
     ///AF5
     #[inline(always)]
     pub fn is_af5(&self) -> bool {
-        *self == AFSEL0::Af5
+        *self == ALTERNATE_FUNCTION::Af5
     }
     ///AF6
     #[inline(always)]
     pub fn is_af6(&self) -> bool {
-        *self == AFSEL0::Af6
+        *self == ALTERNATE_FUNCTION::Af6
     }
     ///AF7
     #[inline(always)]
     pub fn is_af7(&self) -> bool {
-        *self == AFSEL0::Af7
+        *self == ALTERNATE_FUNCTION::Af7
     }
     ///AF8
     #[inline(always)]
     pub fn is_af8(&self) -> bool {
-        *self == AFSEL0::Af8
+        *self == ALTERNATE_FUNCTION::Af8
     }
     ///AF9
     #[inline(always)]
     pub fn is_af9(&self) -> bool {
-        *self == AFSEL0::Af9
+        *self == ALTERNATE_FUNCTION::Af9
     }
     ///AF10
     #[inline(always)]
     pub fn is_af10(&self) -> bool {
-        *self == AFSEL0::Af10
+        *self == ALTERNATE_FUNCTION::Af10
     }
     ///AF11
     #[inline(always)]
     pub fn is_af11(&self) -> bool {
-        *self == AFSEL0::Af11
+        *self == ALTERNATE_FUNCTION::Af11
     }
     ///AF12
     #[inline(always)]
     pub fn is_af12(&self) -> bool {
-        *self == AFSEL0::Af12
+        *self == ALTERNATE_FUNCTION::Af12
     }
     ///AF13
     #[inline(always)]
     pub fn is_af13(&self) -> bool {
-        *self == AFSEL0::Af13
+        *self == ALTERNATE_FUNCTION::Af13
     }
     ///AF14
     #[inline(always)]
     pub fn is_af14(&self) -> bool {
-        *self == AFSEL0::Af14
+        *self == ALTERNATE_FUNCTION::Af14
     }
     ///AF15
     #[inline(always)]
     pub fn is_af15(&self) -> bool {
-        *self == AFSEL0::Af15
+        *self == ALTERNATE_FUNCTION::Af15
     }
 }
 ///Field `AFR(EL0,EL1,EL2,EL3,EL4,EL5,EL6,EL7)` writer - Alternate function selection for port x pin y (y = 0 to 7) These bits are written by software to configure alternate function I/Os
-pub type AFR_W<'a, REG> = crate::FieldWriter<'a, REG, 4, AFSEL0, crate::Safe>;
+pub type AFR_W<'a, REG> = crate::FieldWriter<'a, REG, 4, ALTERNATE_FUNCTION, crate::Safe>;
 impl<'a, REG> AFR_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -169,82 +169,82 @@ where
     ///AF0
     #[inline(always)]
     pub fn af0(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af0)
+        self.variant(ALTERNATE_FUNCTION::Af0)
     }
     ///AF1
     #[inline(always)]
     pub fn af1(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af1)
+        self.variant(ALTERNATE_FUNCTION::Af1)
     }
     ///AF2
     #[inline(always)]
     pub fn af2(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af2)
+        self.variant(ALTERNATE_FUNCTION::Af2)
     }
     ///AF3
     #[inline(always)]
     pub fn af3(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af3)
+        self.variant(ALTERNATE_FUNCTION::Af3)
     }
     ///AF4
     #[inline(always)]
     pub fn af4(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af4)
+        self.variant(ALTERNATE_FUNCTION::Af4)
     }
     ///AF5
     #[inline(always)]
     pub fn af5(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af5)
+        self.variant(ALTERNATE_FUNCTION::Af5)
     }
     ///AF6
     #[inline(always)]
     pub fn af6(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af6)
+        self.variant(ALTERNATE_FUNCTION::Af6)
     }
     ///AF7
     #[inline(always)]
     pub fn af7(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af7)
+        self.variant(ALTERNATE_FUNCTION::Af7)
     }
     ///AF8
     #[inline(always)]
     pub fn af8(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af8)
+        self.variant(ALTERNATE_FUNCTION::Af8)
     }
     ///AF9
     #[inline(always)]
     pub fn af9(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af9)
+        self.variant(ALTERNATE_FUNCTION::Af9)
     }
     ///AF10
     #[inline(always)]
     pub fn af10(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af10)
+        self.variant(ALTERNATE_FUNCTION::Af10)
     }
     ///AF11
     #[inline(always)]
     pub fn af11(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af11)
+        self.variant(ALTERNATE_FUNCTION::Af11)
     }
     ///AF12
     #[inline(always)]
     pub fn af12(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af12)
+        self.variant(ALTERNATE_FUNCTION::Af12)
     }
     ///AF13
     #[inline(always)]
     pub fn af13(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af13)
+        self.variant(ALTERNATE_FUNCTION::Af13)
     }
     ///AF14
     #[inline(always)]
     pub fn af14(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af14)
+        self.variant(ALTERNATE_FUNCTION::Af14)
     }
     ///AF15
     #[inline(always)]
     pub fn af15(self) -> &'a mut crate::W<REG> {
-        self.variant(AFSEL0::Af15)
+        self.variant(ALTERNATE_FUNCTION::Af15)
     }
 }
 impl R {

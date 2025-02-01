@@ -7,42 +7,42 @@ pub type W = crate::W<OTYPERrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum OT0 {
+pub enum OUTPUT_TYPE {
     ///0: Output push-pull (reset state)
     PushPull = 0,
     ///1: Output open-drain
     OpenDrain = 1,
 }
-impl From<OT0> for bool {
+impl From<OUTPUT_TYPE> for bool {
     #[inline(always)]
-    fn from(variant: OT0) -> Self {
+    fn from(variant: OUTPUT_TYPE) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `OT(0-15)` reader - Port x configuration pin %s
-pub type OT_R = crate::BitReader<OT0>;
+pub type OT_R = crate::BitReader<OUTPUT_TYPE>;
 impl OT_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> OT0 {
+    pub const fn variant(&self) -> OUTPUT_TYPE {
         match self.bits {
-            false => OT0::PushPull,
-            true => OT0::OpenDrain,
+            false => OUTPUT_TYPE::PushPull,
+            true => OUTPUT_TYPE::OpenDrain,
         }
     }
     ///Output push-pull (reset state)
     #[inline(always)]
     pub fn is_push_pull(&self) -> bool {
-        *self == OT0::PushPull
+        *self == OUTPUT_TYPE::PushPull
     }
     ///Output open-drain
     #[inline(always)]
     pub fn is_open_drain(&self) -> bool {
-        *self == OT0::OpenDrain
+        *self == OUTPUT_TYPE::OpenDrain
     }
 }
 ///Field `OT(0-15)` writer - Port x configuration pin %s
-pub type OT_W<'a, REG> = crate::BitWriter<'a, REG, OT0>;
+pub type OT_W<'a, REG> = crate::BitWriter<'a, REG, OUTPUT_TYPE>;
 impl<'a, REG> OT_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -50,12 +50,12 @@ where
     ///Output push-pull (reset state)
     #[inline(always)]
     pub fn push_pull(self) -> &'a mut crate::W<REG> {
-        self.variant(OT0::PushPull)
+        self.variant(OUTPUT_TYPE::PushPull)
     }
     ///Output open-drain
     #[inline(always)]
     pub fn open_drain(self) -> &'a mut crate::W<REG> {
-        self.variant(OT0::OpenDrain)
+        self.variant(OUTPUT_TYPE::OpenDrain)
     }
 }
 impl R {

@@ -5,38 +5,38 @@ pub type R = crate::R<IDRrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ID0 {
+pub enum INPUT_DATA {
     ///0: Input is logic low
     Low = 0,
     ///1: Input is logic high
     High = 1,
 }
-impl From<ID0> for bool {
+impl From<INPUT_DATA> for bool {
     #[inline(always)]
-    fn from(variant: ID0) -> Self {
+    fn from(variant: INPUT_DATA) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `ID(0-15)` reader - Port input data pin %s
-pub type ID_R = crate::BitReader<ID0>;
+pub type ID_R = crate::BitReader<INPUT_DATA>;
 impl ID_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> ID0 {
+    pub const fn variant(&self) -> INPUT_DATA {
         match self.bits {
-            false => ID0::Low,
-            true => ID0::High,
+            false => INPUT_DATA::Low,
+            true => INPUT_DATA::High,
         }
     }
     ///Input is logic low
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == ID0::Low
+        *self == INPUT_DATA::Low
     }
     ///Input is logic high
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == ID0::High
+        *self == INPUT_DATA::High
     }
 }
 impl R {

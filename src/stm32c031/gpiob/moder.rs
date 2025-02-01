@@ -2,95 +2,12 @@
 pub type R = crate::R<MODERrs>;
 ///Register `MODER` writer
 pub type W = crate::W<MODERrs>;
-/**Port x configuration pin %s
-
-Value on reset: 3*/
-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum MODE0 {
-    ///0: Input mode
-    Input = 0,
-    ///1: General purpose output mode
-    Output = 1,
-    ///2: Alternate function mode
-    Alternate = 2,
-    ///3: Analog mode
-    Analog = 3,
-}
-impl From<MODE0> for u8 {
-    #[inline(always)]
-    fn from(variant: MODE0) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for MODE0 {
-    type Ux = u8;
-}
-impl crate::IsEnum for MODE0 {}
+///Port x configuration pin %s
+pub use crate::stm32c031::gpioa::moder::MODE;
 ///Field `MODE(0-15)` reader - Port x configuration pin %s
-pub type MODE_R = crate::FieldReader<MODE0>;
-impl MODE_R {
-    ///Get enumerated values variant
-    #[inline(always)]
-    pub const fn variant(&self) -> MODE0 {
-        match self.bits {
-            0 => MODE0::Input,
-            1 => MODE0::Output,
-            2 => MODE0::Alternate,
-            3 => MODE0::Analog,
-            _ => unreachable!(),
-        }
-    }
-    ///Input mode
-    #[inline(always)]
-    pub fn is_input(&self) -> bool {
-        *self == MODE0::Input
-    }
-    ///General purpose output mode
-    #[inline(always)]
-    pub fn is_output(&self) -> bool {
-        *self == MODE0::Output
-    }
-    ///Alternate function mode
-    #[inline(always)]
-    pub fn is_alternate(&self) -> bool {
-        *self == MODE0::Alternate
-    }
-    ///Analog mode
-    #[inline(always)]
-    pub fn is_analog(&self) -> bool {
-        *self == MODE0::Analog
-    }
-}
+pub use crate::stm32c031::gpioa::moder::MODE_R;
 ///Field `MODE(0-15)` writer - Port x configuration pin %s
-pub type MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, MODE0, crate::Safe>;
-impl<'a, REG> MODE_W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    ///Input mode
-    #[inline(always)]
-    pub fn input(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Input)
-    }
-    ///General purpose output mode
-    #[inline(always)]
-    pub fn output(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Output)
-    }
-    ///Alternate function mode
-    #[inline(always)]
-    pub fn alternate(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Alternate)
-    }
-    ///Analog mode
-    #[inline(always)]
-    pub fn analog(self) -> &'a mut crate::W<REG> {
-        self.variant(MODE0::Analog)
-    }
-}
+pub use crate::stm32c031::gpioa::moder::MODE_W;
 impl R {
     ///Port x configuration pin (0-15)
     ///

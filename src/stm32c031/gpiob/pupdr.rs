@@ -2,82 +2,12 @@
 pub type R = crate::R<PUPDRrs>;
 ///Register `PUPDR` writer
 pub type W = crate::W<PUPDRrs>;
-/**Port x configuration pin %s
-
-Value on reset: 0*/
-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum PUPD0 {
-    ///0: No pull-up, pull-down
-    Floating = 0,
-    ///1: Pull-up
-    PullUp = 1,
-    ///2: Pull-down
-    PullDown = 2,
-}
-impl From<PUPD0> for u8 {
-    #[inline(always)]
-    fn from(variant: PUPD0) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for PUPD0 {
-    type Ux = u8;
-}
-impl crate::IsEnum for PUPD0 {}
+///Port x configuration pin %s
+pub use crate::stm32c031::gpioa::pupdr::PULL;
 ///Field `PUPD(0-15)` reader - Port x configuration pin %s
-pub type PUPD_R = crate::FieldReader<PUPD0>;
-impl PUPD_R {
-    ///Get enumerated values variant
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<PUPD0> {
-        match self.bits {
-            0 => Some(PUPD0::Floating),
-            1 => Some(PUPD0::PullUp),
-            2 => Some(PUPD0::PullDown),
-            _ => None,
-        }
-    }
-    ///No pull-up, pull-down
-    #[inline(always)]
-    pub fn is_floating(&self) -> bool {
-        *self == PUPD0::Floating
-    }
-    ///Pull-up
-    #[inline(always)]
-    pub fn is_pull_up(&self) -> bool {
-        *self == PUPD0::PullUp
-    }
-    ///Pull-down
-    #[inline(always)]
-    pub fn is_pull_down(&self) -> bool {
-        *self == PUPD0::PullDown
-    }
-}
+pub use crate::stm32c031::gpioa::pupdr::PUPD_R;
 ///Field `PUPD(0-15)` writer - Port x configuration pin %s
-pub type PUPD_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PUPD0>;
-impl<'a, REG> PUPD_W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    ///No pull-up, pull-down
-    #[inline(always)]
-    pub fn floating(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::Floating)
-    }
-    ///Pull-up
-    #[inline(always)]
-    pub fn pull_up(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::PullUp)
-    }
-    ///Pull-down
-    #[inline(always)]
-    pub fn pull_down(self) -> &'a mut crate::W<REG> {
-        self.variant(PUPD0::PullDown)
-    }
-}
+pub use crate::stm32c031::gpioa::pupdr::PUPD_W;
 impl R {
     ///Port x configuration pin (0-15)
     ///

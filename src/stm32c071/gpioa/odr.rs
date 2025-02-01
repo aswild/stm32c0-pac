@@ -7,42 +7,42 @@ pub type W = crate::W<ODRrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum OD0 {
+pub enum OUTPUT_DATA {
     ///0: Set output to logic low
     Low = 0,
     ///1: Set output to logic high
     High = 1,
 }
-impl From<OD0> for bool {
+impl From<OUTPUT_DATA> for bool {
     #[inline(always)]
-    fn from(variant: OD0) -> Self {
+    fn from(variant: OUTPUT_DATA) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `OD(0-15)` reader - Port output data pin %s
-pub type OD_R = crate::BitReader<OD0>;
+pub type OD_R = crate::BitReader<OUTPUT_DATA>;
 impl OD_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> OD0 {
+    pub const fn variant(&self) -> OUTPUT_DATA {
         match self.bits {
-            false => OD0::Low,
-            true => OD0::High,
+            false => OUTPUT_DATA::Low,
+            true => OUTPUT_DATA::High,
         }
     }
     ///Set output to logic low
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == OD0::Low
+        *self == OUTPUT_DATA::Low
     }
     ///Set output to logic high
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == OD0::High
+        *self == OUTPUT_DATA::High
     }
 }
 ///Field `OD(0-15)` writer - Port output data pin %s
-pub type OD_W<'a, REG> = crate::BitWriter<'a, REG, OD0>;
+pub type OD_W<'a, REG> = crate::BitWriter<'a, REG, OUTPUT_DATA>;
 impl<'a, REG> OD_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -50,12 +50,12 @@ where
     ///Set output to logic low
     #[inline(always)]
     pub fn low(self) -> &'a mut crate::W<REG> {
-        self.variant(OD0::Low)
+        self.variant(OUTPUT_DATA::Low)
     }
     ///Set output to logic high
     #[inline(always)]
     pub fn high(self) -> &'a mut crate::W<REG> {
-        self.variant(OD0::High)
+        self.variant(OUTPUT_DATA::High)
     }
 }
 impl R {

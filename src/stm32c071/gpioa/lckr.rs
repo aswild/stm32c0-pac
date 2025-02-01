@@ -7,42 +7,42 @@ pub type W = crate::W<LCKRrs>;
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum LCK0 {
+pub enum LOCK {
     ///0: Port configuration not locked
     Unlocked = 0,
     ///1: Port configuration locked
     Locked = 1,
 }
-impl From<LCK0> for bool {
+impl From<LOCK> for bool {
     #[inline(always)]
-    fn from(variant: LCK0) -> Self {
+    fn from(variant: LOCK) -> Self {
         variant as u8 != 0
     }
 }
 ///Field `LCK(0-15)` reader - Port x lock pin %s
-pub type LCK_R = crate::BitReader<LCK0>;
+pub type LCK_R = crate::BitReader<LOCK>;
 impl LCK_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> LCK0 {
+    pub const fn variant(&self) -> LOCK {
         match self.bits {
-            false => LCK0::Unlocked,
-            true => LCK0::Locked,
+            false => LOCK::Unlocked,
+            true => LOCK::Locked,
         }
     }
     ///Port configuration not locked
     #[inline(always)]
     pub fn is_unlocked(&self) -> bool {
-        *self == LCK0::Unlocked
+        *self == LOCK::Unlocked
     }
     ///Port configuration locked
     #[inline(always)]
     pub fn is_locked(&self) -> bool {
-        *self == LCK0::Locked
+        *self == LOCK::Locked
     }
 }
 ///Field `LCK(0-15)` writer - Port x lock pin %s
-pub type LCK_W<'a, REG> = crate::BitWriter<'a, REG, LCK0>;
+pub type LCK_W<'a, REG> = crate::BitWriter<'a, REG, LOCK>;
 impl<'a, REG> LCK_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -50,12 +50,12 @@ where
     ///Port configuration not locked
     #[inline(always)]
     pub fn unlocked(self) -> &'a mut crate::W<REG> {
-        self.variant(LCK0::Unlocked)
+        self.variant(LOCK::Unlocked)
     }
     ///Port configuration locked
     #[inline(always)]
     pub fn locked(self) -> &'a mut crate::W<REG> {
-        self.variant(LCK0::Locked)
+        self.variant(LOCK::Locked)
     }
 }
 /**Lock key This bit can be read any time. It can only be modified using the lock key write sequence. LOCK key write sequence: WR LCKR\[16\]
@@ -71,15 +71,15 @@ must not change. Note: Any error in the lock sequence aborts the lock. Note: Aft
 Value on reset: 0*/
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum LCKK {
+pub enum LOCK_KEY {
     ///0: Port configuration lock key not active
     NotActive = 0,
     ///1: Port configuration lock key active
     Active = 1,
 }
-impl From<LCKK> for bool {
+impl From<LOCK_KEY> for bool {
     #[inline(always)]
-    fn from(variant: LCKK) -> Self {
+    fn from(variant: LOCK_KEY) -> Self {
         variant as u8 != 0
     }
 }
@@ -92,25 +92,25 @@ WR LCKR\[16\]
 RD LCKR RD LCKR\[16\]
 = 1 (this read operation is optional but it confirms that the lock is active) Note: During the LOCK key write sequence, the value of LCK\[15:0\]
 must not change. Note: Any error in the lock sequence aborts the lock. Note: After the first lock sequence on any bit of the port, any read access on the LCKK bit returns 1 until the next MCU reset or peripheral reset.*/
-pub type LCKK_R = crate::BitReader<LCKK>;
+pub type LCKK_R = crate::BitReader<LOCK_KEY>;
 impl LCKK_R {
     ///Get enumerated values variant
     #[inline(always)]
-    pub const fn variant(&self) -> LCKK {
+    pub const fn variant(&self) -> LOCK_KEY {
         match self.bits {
-            false => LCKK::NotActive,
-            true => LCKK::Active,
+            false => LOCK_KEY::NotActive,
+            true => LOCK_KEY::Active,
         }
     }
     ///Port configuration lock key not active
     #[inline(always)]
     pub fn is_not_active(&self) -> bool {
-        *self == LCKK::NotActive
+        *self == LOCK_KEY::NotActive
     }
     ///Port configuration lock key active
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == LCKK::Active
+        *self == LOCK_KEY::Active
     }
 }
 /**Field `LCKK` writer - Lock key This bit can be read any time. It can only be modified using the lock key write sequence. LOCK key write sequence: WR LCKR\[16\]
@@ -122,7 +122,7 @@ WR LCKR\[16\]
 RD LCKR RD LCKR\[16\]
 = 1 (this read operation is optional but it confirms that the lock is active) Note: During the LOCK key write sequence, the value of LCK\[15:0\]
 must not change. Note: Any error in the lock sequence aborts the lock. Note: After the first lock sequence on any bit of the port, any read access on the LCKK bit returns 1 until the next MCU reset or peripheral reset.*/
-pub type LCKK_W<'a, REG> = crate::BitWriter<'a, REG, LCKK>;
+pub type LCKK_W<'a, REG> = crate::BitWriter<'a, REG, LOCK_KEY>;
 impl<'a, REG> LCKK_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -130,12 +130,12 @@ where
     ///Port configuration lock key not active
     #[inline(always)]
     pub fn not_active(self) -> &'a mut crate::W<REG> {
-        self.variant(LCKK::NotActive)
+        self.variant(LOCK_KEY::NotActive)
     }
     ///Port configuration lock key active
     #[inline(always)]
     pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(LCKK::Active)
+        self.variant(LOCK_KEY::Active)
     }
 }
 impl R {
